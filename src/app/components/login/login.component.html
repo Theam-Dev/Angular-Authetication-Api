@@ -1,0 +1,30 @@
+<br/>
+<div class="row justify-content-center">
+    <div class="col col-sm-8 col-sm-6">
+        <div class="card">
+            <div class="card-header">Login</div>
+            <div class="card-body">
+                <form [formGroup]="formInputData" (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                      <label for="email">Email address:</label>
+                      <input type="email" formControlName="email" class="form-control" placeholder="Enter email" id="email" 
+                      [ngClass]="{ 'is-invalid': submitted && validation.email.errors }" [(ngModel)]="data.email"/>
+                      <div *ngIf="submitted && validation.email.errors" class="invalid-feedback">
+                        <div *ngIf="validation.email.errors.required">Eamil is required</div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd">Password:</label>
+                      <input type="password" formControlName="password" class="form-control" placeholder="Enter password" id="pwd" 
+                      [ngClass]="{ 'is-invalid': submitted && validation.password.errors }" [(ngModel)]="data.password">
+                      <div *ngIf="submitted && validation.password.errors" class="invalid-feedback">
+                        <div *ngIf="validation.password.errors.required">Password is required</div>
+                    </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                  </form>
+            </div>
+          </div>
+    </div>
+  </div>
